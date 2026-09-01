@@ -6,12 +6,21 @@ public class enemyspawner : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] Transform enemyParent;
+    
     [SerializeField] int width;
     [SerializeField] int length;
     [SerializeField] float spacing;
-    [SerializeField] float speed;
-    GameObject[] enemyArray;
+    [SerializeField] private Color enemyColor;
+   
+    public static GameObject[] enemyArray;
+    
+    //Property
 
+    public GameObject[] EnemyArray
+    {
+        get => enemyArray;
+        set => enemyArray = value;
+    }
 
 
     void Start()
@@ -65,13 +74,7 @@ public class enemyspawner : MonoBehaviour
 
     void MoveEnemies()
     {
-        foreach (GameObject enemy in enemyArray)
-        {
-            var position = enemy.transform.position;
-            position.y += -(speed * Time.deltaTime);
-            enemy.transform.position = position;
-                
-        }
+        
     }    
 
 
